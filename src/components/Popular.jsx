@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import styled from "styled-components";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
+import { Card, Grid, Button, CardActions, Typography, CardMedia, CardContent, Box } from "@mui/material";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 
 function Popular() {
@@ -10,7 +10,7 @@ function Popular() {
     const [popular, setPopular] = useState([]);
 
     useEffect(() => {
-        getPopular()
+        getPopular();
     }, []);
 
     const getPopular = async () => {
@@ -19,6 +19,7 @@ function Popular() {
 
         if (check) {
             setPopular(JSON.parse(check));
+
         }
         else {
             const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12`);
@@ -31,67 +32,53 @@ function Popular() {
     };
 
     return (
-        <Wrapper>
-            <h2>Popular Choices</h2>
-            <Splide options={{
-                perPage: 4,
-                arrows: true,
-                pagination: false,
-                drag: "free",
-                gap: "5rem",
-            }}>
-                {popular.map((recipe) => {
-                    return (
-                        <SplideSlide key={recipe.id}>
-                            <Card>
-                                <p>{recipe.title}</p>
-                                <img src={recipe.image} alt={recipe.title} />
-                                
-                            </Card>
-                        </SplideSlide>
-                    )
-                })}
-            </Splide>
-        </Wrapper>
+        <Grid mb={2} style={{ marginTop: '5rem' }}>          
+                <h2 style={{ marginBottom: "15px" }}>Popular Choices</h2>
+                <Splide options={{
+                    perPage: 3,
+                    arrows: true,
+                    pagination: false,
+                    drag: "free",
+                    gap: "5rem",
+                }}>
+                    {popular.map((recipe) => {
+                        return (
+                            <SplideSlide>
+
+                                <Card key={recipe.id}
+                                    sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                                >
+                                    <CardMedia
+                                        component="img"
+                                        sx={{
+                                            // 16:9
+
+                                        }}
+                                        image={recipe.image}
+                                        alt="random"
+                                    />
+                                    <CardContent sx={{ flexGrow: 1 }}>
+                                        <Typography gutterBottom variant="h6" component="h4">
+                                            {recipe.title}
+                                        </Typography>
+                                        <Typography>
+                                            This is a media card. You can use this section to describe the
+                                            content.
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button size="small">Sumary</Button>
+                                        <Button size="small">Ingredients</Button>
+                                    </CardActions>
+                                </Card>
+
+                            </SplideSlide>
+                        )
+                    })}
+                </Splide>            
+        </Grid>
     )
 }
 
-const Wrapper = styled.div`
-   margin: 4rem 0rem;
-`
-
-const Card = styled.div`
- min-height: 25rem;
- border-radius: 2rem;
- overflow: hidden;
- position: relative;
- margin: 2rem;
-
- img {
-   border-radius: 2rem;
-   position: absolute;
-   left: 0;
-   width: 100%,
-   height: 100%;
-   object-fit: cover;
- }
-
- p {
-    position: absolute;
-    z-index: 10;
-    left: 50%;
-    bottom: 0%;
-    transform: translate(-50%, 0%);
-    color: white;
-    width: 100%;
-    text-align: center;
-    font-weight: 600;
-    font-size: 1rem;
-    height: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
- }
-`;
 
 export default Popular;

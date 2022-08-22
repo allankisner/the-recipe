@@ -1,38 +1,38 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Card, Grid, Box, Button, CardActions, Typography, CardMedia, CardContent } from "@mui/material";
+import { Card, Grid, Button, CardActions, Typography, CardMedia, CardContent } from "@mui/material";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 
 function Veggie() {
 
-    const [veggie, setVeggie] = useState([]);
+    const [candie, setCandie] = useState([]);
 
     useEffect(() => {
-        getVeggie()
+        getCandie()
     }, []);
 
-    const getVeggie = async () => {
+    const getCandie = async () => {
 
-        const check = localStorage.getItem('veggie');
+        const check = localStorage.getItem('candies');
 
         if (check) {
-            setVeggie(JSON.parse(check));
+            setCandie(JSON.parse(check));
         }
         else {
-            const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=vegetarian`);
+            const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=candies`);
             const data = await api.json();
 
-            localStorage.setItem('veggie', JSON.stringify(data.recipes));
-            setVeggie(data.recipes);
+            localStorage.setItem('candies', JSON.stringify(data.recipes));
+            setCandie(data.recipes);
             console.log(data.recipes);
         }
     };
 
     return (
-        <Grid mb={2} style={{ marginTop: '5rem' }}>    
-            <h2 style={{ marginBottom: "15px" }}>Best Vegan Choices</h2>
+        <Grid  mb={2} style={{ marginTop: '5rem' }}>
+            <h2 style={{marginBottom:"15px"}}>Candies</h2>
             <Splide options={{
                 perPage: 3,
                 arrows: true,
@@ -40,20 +40,22 @@ function Veggie() {
                 drag: "free",
                 gap: "5rem",
             }}>
-                {veggie.map((recipe) => {
+                {candie.map((recipe) => {
                     return (
                         <SplideSlide key={recipe.id}>
                             <Card key={recipe.id}
-                                sx={{ height:'90%', position:'relative'}}
+                                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                             >
                                 <CardMedia
                                     component="img"
                                     sx={{
+                                      
+
                                     }}
                                     image={recipe.image}
                                     alt="random"
                                 />
-                                <CardContent sx={{ flexGrow: 1 , position:'relative' }}>
+                                <CardContent sx={{ flexGrow: 1 }}>
                                     <Typography gutterBottom variant="h6" component="h4">
                                         {recipe.title}
                                     </Typography>
@@ -62,7 +64,7 @@ function Veggie() {
                                         content.
                                     </Typography>
                                 </CardContent>
-                                <CardActions sx={{position: 'relative'}}>
+                                <CardActions>
                                     <Button size="small">View</Button>
                                     <Button size="small">Edit</Button>
                                 </CardActions>
@@ -71,7 +73,7 @@ function Veggie() {
                     )
                 })}
             </Splide>
-        </Grid >
+        </Grid>
     )
 }
 

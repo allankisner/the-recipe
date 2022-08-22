@@ -1,15 +1,32 @@
 import React from "react";
 import Veggie from "../components/Veggie";
 import Popular from "../components/Popular";
-import Cocktail from "../components/Cocktail";
+import { Box, Grid } from "@mui/material";
+import Header from "../components/Header";
+import Candie from "../components/Candie";
+import Footer from "../components/Footer";
 
 function Home() {
   return (
-    <>
-    <Popular />
-    <Veggie />
-    <Cocktail />
-    </>
+    <main>
+      <Header/>
+    <Grid container >
+      <Box style={{
+        maxWidth: '800px',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 'auto'
+
+      }} >
+        <Box>
+        <Popular />
+        </Box>
+        <Veggie />
+        <Candie />
+      </Box>
+    </Grid>
+    <Footer />
+    </main>
   )
 }
 
