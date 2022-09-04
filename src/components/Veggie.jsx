@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Card, Grid, Box, Button, CardActions, Typography, CardMedia, CardContent } from "@mui/material";
+import { Card, Grid, Button, CardActions, Typography, CardMedia, CardContent } from "@mui/material";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 

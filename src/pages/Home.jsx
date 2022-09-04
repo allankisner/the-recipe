@@ -9,23 +9,23 @@ import Footer from "../components/Footer";
 function Home() {
   return (
     <main>
-      <Header/>
-    <Grid container >
-      <Box style={{
-        maxWidth: '800px',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: 'auto'
+      <Header />
+      <Grid container >
+        <Box style={{
+          maxWidth: '800px',
+          alignItems: 'center',
+          justifyContent: 'center',
+          margin: 'auto'
 
-      }} >
-        <Box>
-        <Popular />
+        }} >
+          <Box>
+            <Popular />
+          </Box>
+          <Veggie />
+          <Candie />
         </Box>
-        <Veggie />
-        <Candie />
-      </Box>
-    </Grid>
-    <Footer />
+      </Grid>
+      <Footer />
     </main>
   )
 }

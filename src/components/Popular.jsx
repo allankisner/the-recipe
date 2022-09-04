@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Card, Grid, Button, CardActions, Typography, CardMedia, CardContent, Box } from "@mui/material";
+import { Card, Grid, Button, CardActions, Typography, CardMedia, CardContent } from "@mui/material";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 
@@ -43,9 +43,9 @@ function Popular() {
                 }}>
                     {popular.map((recipe) => {
                         return (
-                            <SplideSlide>
+                            <SplideSlide key={recipe.id}>
 
-                                <Card key={recipe.id}
+                                <Card 
                                     sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                                 >
                                     <CardMedia
