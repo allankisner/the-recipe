@@ -1,11 +1,16 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react';
-import styled from "styled-components";
-import{Grid, Card } from './styles/cuisine'
+import { Grid, Card } from './styles/cuisine'
 
 
 function Cuisine() {
+
+  const linkStyle = {
+    margin: "1rem",
+    textDecoration: "none",
+    color: 'black'
+  };
 
   const [cuisine, setCuisine] = useState([]);
 
@@ -28,11 +33,13 @@ function Cuisine() {
   return (
     <Grid>
       {cuisine.map((recipe) => {
-        return (
+        return (       
           <Card key={recipe.id}>
+            <Link  style={linkStyle} to={"/recipe/" + recipe.id}>
             <img src={recipe.image} alt='img' />
             <h1>{recipe.title}</h1>
-          </Card>
+            </Link>
+          </Card>         
         )
       })}
     </Grid>

@@ -1,11 +1,18 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Card, Grid, Button, CardActions, Typography, CardMedia, CardContent } from "@mui/material";
+import { Card, Grid, Typography, CardMedia, CardContent } from "@mui/material";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { Link } from "react-router-dom";
 
 
 function Popular() {
+
+    const linkStyle = {
+        margin: "1rem",
+        textDecoration: "none",
+        color: 'black'
+      };
 
     const [popular, setPopular] = useState([]);
 
@@ -32,8 +39,8 @@ function Popular() {
     };
 
     return (
-        <Grid mb={2} style={{ marginTop: '5rem' }}>          
-                <h2 style={{ marginBottom: "15px" }}>Popular Choices</h2>
+        <Grid mb={2} style={{ marginTop: '15px' }}>          
+                <h2 style={{ marginBottom: "15px", color:"#6bd425" }}>Popular Choices</h2>
                 <Splide options={{
                     perPage: 3,
                     arrows: true,
@@ -44,34 +51,24 @@ function Popular() {
                     {popular.map((recipe) => {
                         return (
                             <SplideSlide key={recipe.id}>
-
                                 <Card 
-                                    sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                                >
+                                sx={{ height:'300px', width:'250px', margin:'5px', background: 'black' ,position:'relative'}} >
+                                    <Link  style={linkStyle} to={"/recipe/" + recipe.id} >
                                     <CardMedia
-                                        component="img"
-                                        sx={{
-                                            // 16:9
-
-                                        }}
+                                        component="img"                                       
                                         image={recipe.image}
                                         alt="random"
+                                        sx={{
+                                            marginTop:'-20px'
+                                        }}
                                     />
-                                    <CardContent sx={{ flexGrow: 1 }}>
-                                        <Typography gutterBottom variant="h6" component="h4">
+                                    <CardContent sx={{ color: 'white', flexGrow: 1 }}>
+                                        <Typography  gutterBottom variant="h6" component="h4">
                                             {recipe.title}
-                                        </Typography>
-                                        <Typography>
-                                            This is a media card. You can use this section to describe the
-                                            content.
-                                        </Typography>
+                                        </Typography>                                      
                                     </CardContent>
-                                    <CardActions>
-                                        <Button size="small">Sumary</Button>
-                                        <Button size="small">Ingredients</Button>
-                                    </CardActions>
+                                    </Link>                               
                                 </Card>
-
                             </SplideSlide>
                         )
                     })}
