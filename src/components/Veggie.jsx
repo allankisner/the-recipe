@@ -1,9 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Card, Grid, Typography, CardMedia, CardContent } from "@mui/material";
+import { Grid, Typography, CardContent } from "@mui/material";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Link } from "react-router-dom";
+import {Card} from './styles/generic'
 
 
 function Veggie() {
@@ -50,25 +51,15 @@ function Veggie() {
                 {veggie.map((recipe) => {
                     return (
                         <SplideSlide key={recipe.id}>
-                            <Card key={recipe.id}
-                                sx={{ height:'300px', width:'250px', margin:'5px', background: 'black', position:'relative'}}
-                            >
+                            <Card key={recipe.id}>
                                 <Link  style={linkStyle} to={"/recipe/" + recipe.id} >
-                                <CardMedia
-                                    component="img"
-                                    sx={{
-                                        marginTop:'-20px'
-                                    }}
-                                    image={recipe.image}
-                                    alt="random"
-                                />
+                                <img src={recipe.image} alt='' />
                                 <CardContent sx={{ color:'white', flexGrow: 1 , position:'relative' }}>
                                     <Typography gutterBottom variant="h6" component="h4">
                                         {recipe.title}
                                     </Typography>                                  
                                 </CardContent>
-                                </Link>
-                              
+                                </Link>                             
                             </Card>
                         </SplideSlide>
                     )

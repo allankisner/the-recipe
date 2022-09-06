@@ -5,23 +5,17 @@ import Category from "./components/Category";
 import Search from "./components/Search";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { Box } from "@mui/material";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
-        <Box style={{
-          maxWidth: '1000px',
-          alignItems: 'center',
-          justifyContent: 'center',
-          margin: 'auto'
-        }} >
+      <div style={{alignItems:'center', justifyContent: 'center'}}>
           <Category />
           <Search />
           <Pages />
-          </Box>
+       </div>  
           <Footer />       
       </BrowserRouter>
     </div>

@@ -1,10 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Card, Grid, Typography, CardMedia, CardContent } from "@mui/material";
+import { Grid, Typography} from "@mui/material";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Link } from "react-router-dom";
-
+import {Card} from './styles/generic'
 
 function Popular() {
 
@@ -50,24 +50,16 @@ function Popular() {
                 }}>
                     {popular.map((recipe) => {
                         return (
-                            <SplideSlide key={recipe.id}>
-                                <Card 
-                                sx={{ height:'300px', width:'250px', margin:'5px', background: 'black' ,position:'relative'}} >
-                                    <Link  style={linkStyle} to={"/recipe/" + recipe.id} >
-                                    <CardMedia
-                                        component="img"                                       
-                                        image={recipe.image}
-                                        alt="random"
-                                        sx={{
-                                            marginTop:'-20px'
-                                        }}
-                                    />
-                                    <CardContent sx={{ color: 'white', flexGrow: 1 }}>
-                                        <Typography  gutterBottom variant="h6" component="h4">
-                                            {recipe.title}
-                                        </Typography>                                      
-                                    </CardContent>
-                                    </Link>                               
+                            <SplideSlide key={recipe.id}>                          
+                                <Card key={recipe.id}>
+                                <Link style={linkStyle} to={"/recipe/" + recipe.id} >
+                                <img src={recipe.image} alt=''   />
+                            
+                                    <Typography gutterBottom variant="h6" component="h6">
+                                        {recipe.title}
+                                    </Typography>                                  
+                             
+                                </Link>                                                     
                                 </Card>
                             </SplideSlide>
                         )

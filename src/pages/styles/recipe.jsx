@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const DetailWrapper = styled.div`
-    margin-top: 10rem;
+    margin-top: 5rem;
     margin-bottom: 10rem;
     display: flex;
       .active{ 
-          background: linear-gradient(35deg, #494949, #313131);
+          background: linear-gradient(35deg, #c91010, #6b0303);
           color: white;
        }
     h2{

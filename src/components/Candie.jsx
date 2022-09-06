@@ -1,9 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Card, Grid, Typography, CardMedia, CardContent } from "@mui/material";
+import { Grid, Typography, CardMedia, CardContent } from "@mui/material";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Link } from "react-router-dom";
+import {Card} from './styles/generic'
 
 
 function Candie() {

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Grid, Card } from './styles/cuisine'
 
 
+
 function Cuisine() {
 
   const linkStyle = {
@@ -33,7 +34,7 @@ function Cuisine() {
   return (
     <Grid>
       {cuisine.map((recipe) => {
-        return (       
+        return (            
           <Card key={recipe.id}>
             <Link  style={linkStyle} to={"/recipe/" + recipe.id}>
             <img src={recipe.image} alt='img' />

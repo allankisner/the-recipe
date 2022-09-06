@@ -1,6 +1,7 @@
 import React from 'react'
 import { Toolbar, Typography, AppBar } from '@mui/material'
 import { Link } from 'react-router-dom'
+import {FaHotjar} from 'react-icons/fa'
 
 function Header() {
   const linkStyle = {
@@ -12,8 +13,9 @@ function Header() {
   return (
     <AppBar  position="relative">
         <Toolbar style={{background:'#618B25'}}> 
-          <Link style={linkStyle} to="/" >   
+          <Link style={linkStyle} to="/" >         
           <Typography variant="h6" color="inherit" wrap="true">
+          <FaHotjar />   
             The Recipe
           </Typography>
           </Link>      

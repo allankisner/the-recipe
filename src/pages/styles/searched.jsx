@@ -7,8 +7,10 @@ export const Grid = styled.div`
 `;
 
 export const Card= styled.div`
+  width: 150px;
+  height: 100px;
    img { 
-      width: 100%;
+      width: 50%;
       border-radius: 2rem;
    }
    a {
