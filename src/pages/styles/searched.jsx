@@ -7,8 +7,6 @@ export const Grid = styled.div`
 `;
 
 export const Card= styled.div`
-  width: 150px;
-  height: 100px;
    img { 
       width: 50%;
       border-radius: 2rem;
@@ -17,7 +15,6 @@ export const Card= styled.div`
     text-decoration: none;
    }
    h4 {
-     text-align: center;
-     padding: 1rem;
+     text-align: center;   
     }
 `;

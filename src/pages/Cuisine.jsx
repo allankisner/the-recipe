@@ -38,7 +38,7 @@ function Cuisine() {
           <Card key={recipe.id}>
             <Link  style={linkStyle} to={"/recipe/" + recipe.id}>
             <img src={recipe.image} alt='img' />
-            <h1>{recipe.title}</h1>
+            <h3>{recipe.title}</h3>
             </Link>
           </Card>         
         )

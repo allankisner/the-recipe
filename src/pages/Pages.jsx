@@ -9,7 +9,7 @@ import { Box } from '@mui/material'
 function Pages() {
   return (
     <Box
-    style={{maxWidth: '1000px', margin:'auto'}}>
+    style={{maxWidth: '1000px', margin:'auto', textAlign:'center', marginTop:'4rem'}}>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/cuisine/:type' element={<Cuisine />} />

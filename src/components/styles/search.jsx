@@ -7,7 +7,7 @@ export const FormStyled = styled.form`
     }
     input{
         border: none;
-        background: #6bd425;
+        background: #ca8a7f;
         font-size: 1.5rem;
         color: white;
         padding: 1rem 3rem;

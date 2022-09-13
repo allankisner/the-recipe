@@ -17,7 +17,7 @@ function Footer() {
 
   return (
 
-    <Box style={{background: '#618B25', padding: '5px'}} component="footer">
+    <Box style={{background: '#333232', padding: '5px'}} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
          The Recipe
         </Typography>

@@ -12,7 +12,7 @@ function Header() {
   
   return (
     <AppBar  position="relative">
-        <Toolbar style={{background:'#618B25'}}> 
+        <Toolbar style={{background:'#333232'}}> 
           <Link style={linkStyle} to="/" >         
           <Typography variant="h6" color="inherit" wrap="true">
           <FaHotjar />   

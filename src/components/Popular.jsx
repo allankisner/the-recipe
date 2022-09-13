@@ -40,7 +40,7 @@ function Popular() {
 
     return (
         <Grid mb={2} style={{ marginTop: '15px' }}>          
-                <h2 style={{ marginBottom: "15px", color:"#6bd425" }}>Popular Choices</h2>
+                <h1 style={{ marginBottom: "15px", color:"#333232" }}>Popular Choices</h1>
                 <Splide options={{
                     perPage: 3,
                     arrows: true,
